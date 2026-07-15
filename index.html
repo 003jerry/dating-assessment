@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相亲竞争力测评 - 精准定位你的婚恋市场价值</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">💕 相亲竞争力测评</div>
+            <div class="nav-tagline">精准定位你的婚恋市场价值</div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>测一测，你在相亲市场值多少分？</h1>
+            <p class="hero-desc">基于大数据算法，多维度评估你的相亲竞争力，生成专属定位报告</p>
+        </section>
+
+        <section class="form-card" id="formCard">
+            <div class="card-header">
+                <h2>📝 填写你的基本信息</h2>
+                <p>所有信息匿名处理，仅用于测算</p>
+            </div>
+            
+            <form id="assessForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">姓名 <span class="required">*</span></label>
+                        <input type="text" id="name" placeholder="请输入你的姓名" required maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label>性别 <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" required>
+                                <span class="radio-custom"></span>
+                                男
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female">
+                                <span class="radio-custom"></span>
+                                女
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthday">出生年月 <span class="required">*</span></label>
+                        <input type="month" id="birthday" required>
+                        <div class="input-hint">限18-55周岁</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="province">所在省份 <span class="required">*</span></label>
+                        <select id="province" required onchange="updateCities()">
+                            <option value="">请选择省份</option>
+                            <option value="zhixiashi">直辖市（京津沪渝）</option>
+                            <option value="hebei">河北省</option>
+                            <option value="shanxi">山西省</option>
+                            <option value="neimenggu">内蒙古自治区</option>
+                            <option value="liaoning">辽宁省</option>
+                            <option value="jilin">吉林省</option>
+                            <option value="heilongjiang">黑龙江省</option>
+                            <option value="jiangsu">江苏省</option>
+                            <option value="zhejiang">浙江省</option>
+                            <option value="anhui">安徽省</option>
+                            <option value="fujian">福建省</option>
+                            <option value="jiangxi">江西省</option>
+                            <option value="shandong">山东省</option>
+                            <option value="henan">河南省</option>
+                            <option value="hubei">湖北省</option>
+                            <option value="hunan">湖南省</option>
+                            <option value="guangdong">广东省</option>
+                            <option value="guangxi">广西壮族自治区</option>
+                            <option value="hainan">海南省</option>
+                            <option value="sichuan">四川省</option>
+                            <option value="guizhou">贵州省</option>
+                            <option value="yunnan">云南省</option>
+                            <option value="xizang">西藏自治区</option>
+                            <option value="shaanxi">陕西省</option>
+                            <option value="gansu">甘肃省</option>
+                            <option value="qinghai">青海省</option>
+                            <option value="ningxia">宁夏回族自治区</option>
+                            <option value="xinjiang">新疆维吾尔自治区</option>
+                            <option value="taiwan">台湾省</option>
+                            <option value="xianggang">香港特别行政区</option>
+                            <option value="aomen">澳门特别行政区</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">所在城市 <span class="required">*</span></label>
+                        <select id="city" required>
+                            <option value="">请先选择省份</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hukou">户籍 <span class="required">*</span></label>
+                        <select id="hukou" required>
+                            <option value="">请选择户籍类型</option>
+                            <option value="local">本地户籍（已落户）</option>
+                            <option value="provincial">本省外市户籍</option>
+                            <option value="external">外省户籍</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job">工作岗位 <span class="required">*</span></label>
+                        <select id="job" required>
+                            <option value="">请选择岗位类型</option>
+                            <option value="civil_servant">公务员/事业单位</option>
+                            <option value="state_owned">国企员工</option>
+                            <option value="tech">互联网/IT行业</option>
+                            <option value="finance">金融行业</option>
+                            <option value="education">教育行业</option>
+                            <option value="medical">医疗行业</option>
+                            <option value="enterprise">企业管理层</option>
+                            <option value="military">军人/武警</option>
+                            <option value="legal">法律行业</option>
+                            <option value="media">媒体/文化行业</option>
+                            <option value="realestate">房地产/建筑</option>
+                            <option value="manufacturing">制造业/工程类</option>
+                            <option value="service">服务业</option>
+                            <option value="logistics">物流/运输</option>
+                            <option value="freelance">自由职业</option>
+                            <option value="private">普通私企员工</option>
+                            <option value="entrepreneur">自主创业</option>
+                            <option value="student">在读学生</option>
+                            <option value="retired">已退休</option>
+                            <option value="other">其他行业</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="income">年收入（万元） <span class="required">*</span></label>
+                        <input type="number" id="income" placeholder="如：20" min="0" max="1000" step="0.1" required>
+                        <div class="input-hint">税后年收入，0-1000万</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appearance">外形自评（1-10分） <span class="required">*</span></label>
+                        <div class="slider-container">
+                            <input type="range" id="appearance" min="1" max="10" value="5" class="slider">
+                            <div class="slider-value" id="appearanceValue">5分</div>
+                        </div>
+                        <div class="slider-hint">1=普通  3=中等  5=中上  7=好看  10=非常出众</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">学历 <span class="required">*</span></label>
+                        <select id="education" required>
+                            <option value="">请选择学历</option>
+                            <option value="junior_high">初中及以下</option>
+                            <option value="highschool">高中/中专/技校</option>
+                            <option value="college">大专</option>
+                            <option value="bachelor">本科</option>
+                            <option value="master">硕士研究生</option>
+                            <option value="phd">博士研究生</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="family">家庭情况 <span class="required">*</span></label>
+                        <select id="family" required>
+                            <option value="">请选择家庭情况</option>
+                            <option value="only_child">独生子女，父母双全</option>
+                            <option value="one_sibling">有一个兄弟姐妹</option>
+                            <option value="multiple_siblings">有两个及以上兄弟姐妹</option>
+                            <option value="deceased_parent">父母有一方不在</option>
+                            <option value="both_parents">双亲健在（非独生）</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="assets">家庭可租住资产（万元） <span class="required">*</span></label>
+                        <input type="number" id="assets" placeholder="房产、商铺等可出租资产估值，无则填0" min="0" step="1" required>
+                        <div class="input-hint">不限金额，据实填写</div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" id="submitBtn">
+                        <span class="btn-text">立即测评</span>
+                        <span class="btn-loading" style="display:none;">分析中...</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="report-section" id="reportSection" style="display:none;">
+            <div class="report-card">
+                <div class="report-header">
+                    <h2>🎯 你的相亲竞争力报告</h2>
+                    <div class="report-meta">
+                        <span id="reportCity"></span>
+                        <span id="reportTime"></span>
+                    </div>
+                </div>
+
+                <div class="score-hero">
+                    <div class="score-circle" id="scoreCircle">
+                        <div class="score-number" id="scoreNumber">0</div>
+                        <div class="score-label">综合竞争力</div>
+                    </div>
+                    <div class="score-percentile">
+                        <div class="percentile-number" id="percentileNumber">0%</div>
+                        <div class="percentile-label">超过本地 <span id="percentileCity"></span> <span id="genderLabel"></span> 相亲人群</div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>📊 多维能力雷达图</h3>
+                    <div class="radar-container">
+                        <canvas id="radarChart" width="360" height="360"></canvas>
+                    </div>
+                </div>
+
+                <div class="dimension-section">
+                    <h3>📋 各维度详细得分</h3>
+                    <div class="dimension-list" id="dimensionList"></div>
+                </div>
+
+                <div class="analysis-section">
+                    <h3>💡 婚恋市场定位分析</h3>
+                    <div class="analysis-content" id="analysisContent"></div>
+                </div>
+
+                <div class="dimension-detail-section">
+                    <h3>📖 各维度详细解读</h3>
+                    <div class="dimension-detail-list" id="dimensionDetailList"></div>
+                </div>
+
+                <div class="advice-section">
+                    <h3>🚀 提升建议</h3>
+                    <div class="advice-list" id="adviceList"></div>
+                </div>
+
+                <div class="report-actions">
+                    <button class="btn-secondary" onclick="exportPDF()">📄 导出PDF报告</button>
+                    <button class="btn-secondary" onclick="generateShareImage()">🖼️ 生成分享图片</button>
+                    <button class="btn-outline" onclick="resetForm()">🔄 重新测评</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="share-image-preview" id="shareImagePreview" style="display:none;">
+            <div class="preview-overlay" onclick="closePreview()"></div>
+            <div class="preview-content">
+                <canvas id="shareCanvas" width="750" height="1334"></canvas>
+                <div class="preview-actions">
+                    <button class="btn-primary" onclick="downloadShareImage()">📥 保存图片</button>
+                    <button class="btn-outline" onclick="closePreview()">关闭</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 相亲竞争力测评 | 数据匿名处理，仅供娱乐参考</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/algorithm.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
